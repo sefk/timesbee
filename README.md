@@ -1,10 +1,19 @@
-How many different Bee puzzles are there? Or more precisely, how many different
-combinations of seven letters can be used to build bee puzzles?
+How many different New York Times Spelling Bee puzzles are there? Or more
+precisely, how many combinations of seven letters can be used to build bee
+puzzles?
 
-This program found that there are 7231 different choices of seven letters. 
-The majority (about 62%) have just one pangram in each puzzle, but it's not
-uncommon to have two or three pangrams (about 25% of the time. The breakdown
+This program found that there are 7231 different seven letters combinations that
+could be used to generate unique Bee-style puzzles. There are more unique
+puzzles themseves, because a different choice of middle letter would affect the
+number of words that could be found with that required letter.
 
+The majority of letter choices, about 62%, have just one pangram. That's lower
+than I expected, actually. It's not that uncommon to have two or three pangrams,
+which happens about about 25% of the time, and nearly 4 out of 10 puzzles will
+have more than one pangram. 
+
+And watch out for the combination ```einprst```. If this one ever comes up, good
+luck finding all 27 pangrams.
 
 ## The Bee
 
@@ -59,7 +68,7 @@ The full output can be found in [```timesbee.out```](timesbee.out).
 - How does that change when arranged with a different center letter?
 - Graph histograms of the different number of pangrams, number of answers.
 
-## Rough Breakdown
+## Counts of Pangrams
 
 The [program output](timesbee.out) is written with one line for each set of
 letters, with separators splitting the count of pangrams in sections. This makes
@@ -95,4 +104,3 @@ grep -n -- ---- timesbee.out
 7254:---- 27 pangrams ----
 7256:---- found: 7231 puzzles, 13898 pangrams, of 235886 words considered
 ```
-
