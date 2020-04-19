@@ -27,8 +27,8 @@ def ValidWord(word, letter_set):
     if len(letter_set) != 7:
         RejectBecause('not seven letters')
         valid = False
-    if len(letter_set.intersection(vowel_set)) != 2:
-        RejectBecause('not two vowels')
+    if len(letter_set.intersection(vowel_set)) > 2:
+        RejectBecause('too many vowels')
         valid = False
     return valid
 
