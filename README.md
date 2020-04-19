@@ -61,7 +61,11 @@ The full output can be found in [```timesbee.out```](timesbee.out).
 
 ## Rough Breakdown
 
-Grepping out the separators is a good way to see the size of each section.
+The [program output](timesbee.out) is written with one line for each set of
+letters, with separators splitting the count of pangrams in sections. This makes
+it easy to get an idea of the sizes each group by just searching for those 
+separators with their position (line number) in the output. The ```grep -n```
+does that nicely.
 
 ```
 grep -n -- ---- timesbee.out
