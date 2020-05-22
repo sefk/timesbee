@@ -12,25 +12,28 @@ puzzlemap = {}
 rejected = {}
 considered = 0
 pangrams = 0
-vowel_set = set(['a', 'e', 'i', 'o', 'u', 'y'])
+vowels_set = set(['a', 'e', 'i', 'o', 'u', 'y'])
 
-def RejectBecause(reason):
+
+def rejection_tally(reason):
     if reason not in rejected.keys():
         rejected[reason] = 0
     rejected[reason] = rejected[reason] + 1
 
-def ValidWord(word, letter_set):
+
+def valid_word(word, letter_set):
     valid = True
     if word[0] >= 'A' and word[0] <= 'Z':
-        RejectBecause('proper noun')
+        rejection_tally('proper noun')
         valid = False
     if len(letter_set) != 7:
-        RejectBecause('not seven letters')
+        rejection_tally('not seven letters')
         valid = False
-    if len(letter_set.intersection(vowel_set)) > 2:
-        RejectBecause('too many vowels')
+    if len(letter_set.intersection(vowels_set)) > 2:
+        rejection_tally('too many vowels')
         valid = False
     return valid
+
 
 # Build a map of all puzzles
 # key = seven letters for the puzzle
@@ -41,7 +44,7 @@ for word in sys.stdin:
     letter_set = set()
     for char in list(word):
         letter_set.add(char.lower())
-    if not ValidWord(word, letter_set):
+    if not valid_word(word, letter_set):
         continue
     pangrams = pangrams + 1
     letters = ''.join(sorted(list(letter_set)))
@@ -63,10 +66,10 @@ for (letters, wordlist) in puzzlemap.items():
 # Print out all letters andp
 for (count, pangrams_list) in sorted(pangram_counts.items()):
     noun = "pangram" if count == 1 else "pangrams"
-    print( "---- %d %s ----" % (count,noun))
+    print("---- %d %s ----" % (count, noun))
     for pangram_tuple in sorted(pangrams_list):
         print(pangram_tuple[0], sorted(pangram_tuple[1]))
 
-print("---- found: %d puzzles, %d pangrams, of %d words considered" 
-        % (len(puzzlemap), pangrams, considered))
+print("---- found: %d puzzles, %d pangrams, of %d words considered"
+      % (len(puzzlemap), pangrams, considered))
 print("---- words rejected because:", rejected)
