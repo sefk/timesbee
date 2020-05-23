@@ -15,6 +15,7 @@ have more than one pangram.
 And watch out for the combination ```einprst```. If this one ever comes up, good
 luck finding all 27 pangrams.
 
+
 ## The Bee
 
 The Bee is a puzzle consisting of seven letters, with one central "special" letter,
@@ -28,11 +29,11 @@ arranged like so:
 
 The center letter has to be used in all answers. Letters can be used any number
 of times to make up words of four letters or more. Every puzzles has at least
-one pangram, a word that uses all letters. It's possible for a puzzle to have
-multiple pangrams.
+one pangram, a word that uses all letters. A puzzle to have multiple pangrams.
 
 For more information, see https://nytbee.com/. This site isn't affiliated with the
-NY Times but is very cool and they don't seem to mind.
+NY Times but is well done and the Times seems OK with it.
+
 
 ## This Program
 
@@ -62,11 +63,13 @@ einprst ['enspirit', 'enterprise', 'enterpriser', 'episternite', 'inspiriter',
 
 The full output can be found in [```timesbee.out```](timesbee.out).
 
+
 ## Future Work
 
 - What are the distributions of number of words?
 - How does that change when arranged with a different center letter?
 - Graph histograms of the different number of pangrams, number of answers.
+
 
 ## Counts of Pangrams
 
