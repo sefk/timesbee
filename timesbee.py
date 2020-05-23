@@ -35,6 +35,14 @@ def valid_word(word, letter_set):
     return valid
 
 
+def plural(count, noun):
+    str = "{} {}".format(count, noun)
+    if count == 1:
+        return str
+    else:
+        return str+"s"
+
+
 # Build a map of all puzzles
 # key = seven letters for the puzzle
 # value = list of all pangrams given those letters to work with.
@@ -63,10 +71,9 @@ for (letters, wordlist) in puzzlemap.items():
     found_tuple = (letters, wordlist)
     pangram_counts[count].append(found_tuple)
 
-# Print out all letters andp
+# Print out all we found, grouped by counts
 for (count, pangrams_list) in sorted(pangram_counts.items()):
-    noun = "pangram" if count == 1 else "pangrams"
-    print("---- %d %s ----" % (count, noun))
+    print("----", plural(count, "pangram"), "----")
     for pangram_tuple in sorted(pangrams_list):
         print(pangram_tuple[0], sorted(pangram_tuple[1]))
 
